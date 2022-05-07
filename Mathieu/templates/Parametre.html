@@ -197,17 +197,48 @@
               </div>
               <div class="form-group form-button">
                 <input type="submit" name="modify" id="modify" class="form-submit" value="Modifier" onclick="show()" />
-                <img id="change-image" alt="change done"
-                  src="https://resources.infosecinstitute.com/wp-content/uploads/26-21.png" style="opacity:0" />
               </div>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                data-whatever="@mdo">Modifier le mot de passe</button>
 
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Veuillez rentrer les informations nécessaires</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Ancien mot de passe:</label>
+                          <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Nouveau mot de passe:</label>
+                          <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Confirmer mot de passe:</label>
+                          <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                      <button type="button" class="btn btn-primary">Importer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <script>
                 function show() {
 
                   /* Access image by id and change
                   the display property to block*/
-                  document.getElementById('change-image');
-                  style.opacity = "100";
 
 
                   document.getElementById('modify')
@@ -216,13 +247,9 @@
               </script>
             </form>
           </div>
-
-
-
         </div>
       </div>
-  </div>
-  </section>
+    </section>
   </div>
 
   <button class="open-button" onclick="openForm()">Contact</button>
@@ -244,6 +271,8 @@
       <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
     </form>
   </div>
+
+
 
   <script>
     function openForm() {
