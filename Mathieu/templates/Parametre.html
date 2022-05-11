@@ -215,21 +215,21 @@
                       <form>
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Ancien mot de passe:</label>
-                          <input type="text" class="form-control" id="recipient-name">
+                          <input type="text" class="form-control" id="oldpwd">
                         </div>
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Nouveau mot de passe:</label>
-                          <input type="text" class="form-control" id="recipient-name">
+                          <input type="password" class="form-control" id="newpwd">
                         </div>
                         <div class="form-group">
                           <label for="recipient-name" class="col-form-label">Confirmer mot de passe:</label>
-                          <input type="text" class="form-control" id="recipient-name">
+                          <input type="password" class="form-control" id="confirmpwd">
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                      <button type="button" class="btn btn-primary">Importer</button>
+                      <button type="button" class="btn btn-primary" onclick="send()">Importer</button>
                     </div>
                   </div>
                 </div>
@@ -281,6 +281,11 @@
 
     function closeForm() {
       document.getElementById("myForm").style.display = "none";
+    }
+    function send() {
+      console.log(oldpwd.value);
+      console.log(newpwd.value);
+      console.log(confirmpwd.value);
     }
   </script>
   <script src="../static/js/acceuil_js/jquery-3.3.1.min.js"></script>

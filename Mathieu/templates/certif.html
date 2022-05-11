@@ -222,20 +222,20 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form id="send">
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Nom et prénom:</label>
-                <input type="text" class="form-control" id="recipient-name">
+                <input type="text" class="form-control" id="formname">
               </div>
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
+                <textarea class="form-control" id="messagetext"></textarea>
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-            <button type="button" class="btn btn-primary">Importer</button>
+            <button type="button" class="btn btn-primary" onclick="send()">Importer</button>
           </div>
         </div>
       </div>
@@ -247,19 +247,19 @@
   <button class="open-button" onclick="openForm()">Contact</button>
 
   <div class="form-popup" id="myForm">
-    <form action="/action_page.php" class="form-container">
+    <form action="logs.html" method="GET" class="form-container">
       <h1>Besoin d'aide ?</h1>
 
       <label for="name"><b>Nom</b></label>
-      <input type="text" placeholder="Enter name" name="name" required>
+      <input type="text" placeholder="Enter name" name="name" required id="name">
 
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" name="email" required id="email">
 
       <label for="text"><b>Message</b></label>
-      <input type="text" placeholder="Enter text" name="text" required>
+      <input type="text" placeholder="Enter text" name="text" required id="text">
 
-      <button type="submit" class="btn">Envoyer</button>
+      <button type="submit" id="send" class="btn" onclick="send2()">Envoyer</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
     </form>
   </div>
@@ -271,6 +271,15 @@
 
     function closeForm() {
       document.getElementById("myForm").style.display = "none";
+    }
+    function send() {
+      console.log(formname.value);
+      console.log(messagetext.value);
+    }
+    function send2() {
+      console.log(name.value);
+      console.log(email.value);
+      console.log(text.value);
     }
   </script>
 
