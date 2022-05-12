@@ -190,7 +190,7 @@
             Please upload documents only in 'pdf', 'docx', 'rtf', 'jpg', 'jpeg', 'png' & 'text' format.
           </p>
         </span>
-        <input type="file" class="upload up" id="up" onchange="readURL(this);" />
+        <input type="file" class="upload up" id="document_up" onchange="readURL(this);" />
       </div><!-- btn-orange -->
     </div><!-- col-3 -->
 
@@ -203,9 +203,10 @@
   <div class="col text-center">
     <h4>Quel type de documents souhaitez-vous certifier ?</h4>
     <!--Using multiple to select multiple value-->
-    <select name="subject" multiple size=6>
+    <select name="subject">
+      <option value="">Choisissez un type de fichier</option>
       <option value="Diplome">Diplôme</option>
-      <option value="Diplome2">Choix 2</option>
+      <option value="Diplome2">Autre type de document à venir</option>
 
     </select>
     <br><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
@@ -237,7 +238,7 @@
               </div>
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Genre:</label>
-                <input type="checkbox" class="form-control" id="formname">
+                <input type="text" class="form-control" id="formname">
               </div>
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Pays de naissance:</label>
@@ -263,7 +264,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-            <button type="button" class="btn btn-primary" onclick="send()">Importer</button>
+            <button type="button" class="btn btn-primary" onclick="sendFile()">Importer</button>
           </div>
         </div>
       </div>
@@ -302,11 +303,14 @@
     function closeForm() {
       document.getElementById("myForm").style.display = "none";
     }
-    function send() {
-      console.log(name.value);
-      console.log(email.value);
-      console.log(message.value);
-    }
+    function sendFile() {
+      let data = document.getElementById("document_up").files[0];
+      let entry = document.getElementById("document_up").files[0];
+      console.log('sendFile', entry, data)
+      fetch('uploads/' + encodeURIComponent(entry.name), { method: 'PUT', body: data });
+      alert('your file has been uploaded');
+      location.reload();
+    };
   </script>
 
 
