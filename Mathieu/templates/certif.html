@@ -224,11 +224,39 @@
           <div class="modal-body">
             <form id="send">
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Nom et prénom:</label>
+                <label for="recipient-name" class="col-form-label">Nom:</label>
                 <input type="text" class="form-control" id="formname">
               </div>
               <div class="form-group">
-                <label for="message-text" class="col-form-label">Message:</label>
+                <label for="recipient-name" class="col-form-label">Prénom:</label>
+                <input type="text" class="form-control" id="formname">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Date de naissance:</label>
+                <input type="date" class="form-control" id="formname">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Genre:</label>
+                <input type="checkbox" class="form-control" id="formname">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Pays de naissance:</label>
+                <input type="text" class="form-control" id="formname">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Niveau de diplome:</label>
+                <input type="text" class="form-control" id="formname">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Domaine:</label>
+                <input type="text" class="form-control" id="formname">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Mention:</label>
+                <input type="text" class="form-control" id="formname">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Spécialité:</label>
                 <textarea class="form-control" id="messagetext"></textarea>
               </div>
             </form>
@@ -247,7 +275,7 @@
   <button class="open-button" onclick="openForm()">Contact</button>
 
   <div class="form-popup" id="myForm">
-    <form action="logs.html" method="GET" class="form-container">
+    <form class="form-container">
       <h1>Besoin d'aide ?</h1>
 
       <label for="name"><b>Nom</b></label>
@@ -257,12 +285,14 @@
       <input type="text" placeholder="Enter Email" name="email" required id="email">
 
       <label for="text"><b>Message</b></label>
-      <input type="text" placeholder="Enter text" name="text" required id="text">
+      <input type="text" placeholder="Enter text" name="text" required id="message">
 
-      <button type="submit" id="send" class="btn" onclick="send2()">Envoyer</button>
+      <button type="submit" class="btn" onclick="send()">Envoyer</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
     </form>
   </div>
+
+
 
   <script>
     function openForm() {
@@ -273,13 +303,9 @@
       document.getElementById("myForm").style.display = "none";
     }
     function send() {
-      console.log(formname.value);
-      console.log(messagetext.value);
-    }
-    function send2() {
       console.log(name.value);
       console.log(email.value);
-      console.log(text.value);
+      console.log(message.value);
     }
   </script>
 

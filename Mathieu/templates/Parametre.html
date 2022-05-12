@@ -255,19 +255,19 @@
   <button class="open-button" onclick="openForm()">Contact</button>
 
   <div class="form-popup" id="myForm">
-    <form action="/action_page.php" class="form-container">
+    <form class="form-container">
       <h1>Besoin d'aide ?</h1>
 
       <label for="name"><b>Nom</b></label>
-      <input type="text" placeholder="Enter name" name="name" required>
+      <input type="text" placeholder="Enter name" name="name" required id="name">
 
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" name="email" required id="email">
 
       <label for="text"><b>Message</b></label>
-      <input type="text" placeholder="Enter text" name="text" required>
+      <input type="text" placeholder="Enter text" name="text" required id="message">
 
-      <button type="submit" class="btn">Envoyer</button>
+      <button type="submit" class="btn" onclick="send()">Envoyer</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
     </form>
   </div>
@@ -283,9 +283,9 @@
       document.getElementById("myForm").style.display = "none";
     }
     function send() {
-      console.log(oldpwd.value);
-      console.log(newpwd.value);
-      console.log(confirmpwd.value);
+      console.log(name.value);
+      console.log(email.value);
+      console.log(message.value);
     }
   </script>
   <script src="../static/js/acceuil_js/jquery-3.3.1.min.js"></script>
