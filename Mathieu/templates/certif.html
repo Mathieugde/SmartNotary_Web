@@ -40,6 +40,7 @@
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
+      background-image: url('../static/assets/img/background.jpg');
     }
 
     * {
@@ -49,7 +50,7 @@
     /* Button used to open the contact form - fixed at the bottom of the page */
     .open-button {
       background-color: #555;
-      color: white;
+      color: rgb(255, 255, 255);
       padding: 16px 20px;
       border: none;
       cursor: pointer;
@@ -135,10 +136,10 @@
       <div class="row align-items-center position-relative">
         <div class="col-3 ml-auto text-right order-2">
           <div class="site-logo">
-            <a href="landing_page.html" class="font-weight-bold text-black">Se Déconnecter</a>
+            <a href="landing_page.html" class="font-weight-bold text-white">Se Déconnecter</a>
           </div>
         </div>
-        <div class="col-9 order-1 text-left mr-auto">
+        <div class="col-9 order-1 text-left mr-auto text-white">
 
 
           <span class="d-inline-block d-lg-block"><a href="#"
@@ -148,7 +149,7 @@
 
 
           <nav class="site-navigation text-right ml-auto d-none d-lg-none" role="navigation">
-            <ul class="site-menu main-menu js-clone-nav ml-auto ">
+            <ul class="site-menu main-menu js-clone-nav ml-auto">
               <li class="active"><a href="accueil.html" class="nav-link">Accueil</a></li>
               <li><a href="MesDocuments.html" class="nav-link">Mes Documents</a></li>
               <li><a href="certif.html" class="nav-link">Certifier un nouveau fichier</a></li>
@@ -167,12 +168,12 @@
 
 
   <br><br><br><br><br><br><br>
-  <section class="features-icons bg-light text-center">
+  <section class="features-icons bg-dark text-center">
     <div class="container">
       <div class="row">
         <div class="col align-self-center">
-          <div class="features-icons-item mx-auto sm sm-0 sm-3">
-            <div class="features-icons-icon d-flex"><i class="bi bi-check-lg m-auto text-primary"></i></div>
+          <div class="features-icons-item mx-auto sm sm-0 sm-3 text-white">
+            <div class="features-icons-icon d-flex"><i class="bi bi-check-lg m-auto text-light"></i></div>
             <h3>Certifier le document</h3>
             <p>Ici vous pouvez ajouter un document que vous souhaitez certifier</p>
           </div>
@@ -185,9 +186,9 @@
     <div class="row uploadDoc">
       <div class="col text-center">
         <img src="upload.png" class="mx-auto d-block">
-        <span class="upl" id="upload">Upload document
+        <span class="upl text-white" id="upload">Soumettre un document
           <p>
-            Please upload documents only in 'pdf', 'docx', 'rtf', 'jpg', 'jpeg', 'png' & 'text' format.
+            Le document doit être à l'un des formats suivants: 'pdf', 'docx', 'rtf', 'jpg', 'jpeg', 'png' pu 'text'.
           </p>
         </span>
         <input type="file" class="upload up" id="document_up" onchange="readURL(this);" />
@@ -201,70 +202,112 @@
   </div>
   <!--uploader-->
   <div class="col text-center">
-    <h4>Quel type de documents souhaitez-vous certifier ?</h4>
+    <div class="text-white">
+      <h4>Quel type de documents souhaitez-vous certifier ?</h4>
+    </div>
     <!--Using multiple to select multiple value-->
+    <br>
     <select name="subject">
       <option value="">Choisissez un type de fichier</option>
       <option value="Diplome">Diplôme</option>
       <option value="Diplome2">Autre type de document à venir</option>
 
     </select>
+    <br>
     <br><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-      data-whatever="@mdo">Envoyer</button>
+      data-whatever="@mdo">Ajouter les informations</button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Veuillez rentrer les informations nécessaires</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Veuillez rentrer les informations de la personne diplômée.
+            </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form id="send">
+            <form id="sendForm" name="formDoc">
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Nom:</label>
-                <input type="text" class="form-control" id="formname">
+                <label for="recipient-name" class="col-form-label">Nom*:</label>
+                <input type="text" class="form-control" name="last_name" id="formname">
               </div>
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Prénom:</label>
-                <input type="text" class="form-control" id="formname">
+                <label for="recipient-name" class="col-form-label">Prénom*:</label>
+                <input type="text" class="form-control" name="first_name" id="formname">
               </div>
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Date de naissance:</label>
-                <input type="date" class="form-control" id="formname">
+                <label for="recipient-name" class="col-form-label">Date de naissance*:</label>
+                <input type="date" class="form-control" name="birth_date" id="formname">
               </div>
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Genre:</label>
-                <input type="text" class="form-control" id="formname">
+                <label for="recipient-name" class="col-form-label">Genre*:</label>
+                <select name="genre">
+                  <option value="M">Homme</option>
+                  <option value="F">Femme</option>
+                </select>
               </div>
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Pays de naissance:</label>
-                <input type="text" class="form-control" id="formname">
+                <label for="recipient-name" class="col-form-label">Pays de naissance*:</label>
+                <select name="birth_country">
+                  <option value="FR">France</option>
+                  <option value="BE">Belgique</option>
+                  <option value="CH">Suisse</option>
+                  <option value="CA">Canada</option>
+                </select>
               </div>
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Niveau de diplome:</label>
-                <input type="text" class="form-control" id="formname">
+                <label for="recipient-name" class="col-form-label">Niveau de diplôme*:</label>
+                <select name="diploma_degree">
+                  <option value="3">CAP,BEP</option>
+                  <option value="4">Baccalauréat</option>
+                  <option value="5">DEUG, BTS, DUT, DEUST</option>
+                  <option value="6">Licence, licence professionnelle, BUT</option>
+                  <option value="6">Maîtrise, master 1</option>
+                  <option value="7">Master, diplôme d'études approfondies, diplôme d'études supérieures spécialisées,
+                    diplôme d'ingénieur</option>
+                  <option value="8">Doctorat, habilitation à diriger des recherches</option>
+                </select>
               </div>
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Domaine:</label>
-                <input type="text" class="form-control" id="formname">
+                <label for="recipient-name" class="col-form-label">Type de diplôme*:</label>
+                <select name="diploma_type">
+                  <option value="BR">Brevet des collèges</option>
+                  <option value="CA">Certificat d'Aptitude Professionnelle (CAP)</option>
+                  <option value="BE">Brevet d'Etudes Professionnelles</option>
+                  <option value="BA">Baccalauréat Général</option>
+                  <option value="BP">Baccalauréat Profesionnel</option>
+                  <option value="BS">Baccalauréat Technologique</option>
+                  <option value="BT">Brevet Technicien Supérieur (BTS)</option>
+                  <option value="DU">Diplôme Universitaire de Technologie (DUT)</option>
+                  <option value="LC">Licence</option>
+                  <option value="LP">Licence Professionnelle</option>
+                  <option value="DE">Diplôme Européen d'Etudes Supérieures (DEES)</option>
+                  <option value="MA">Master</option>
+                  <option value="MB">Maîtrise en Administration des Affaires (MBA)</option>
+                  <option value="IN">Diplôme d'Ingenieur</option>
+                  <option value="DR">Doctorat</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Domaine*:</label>
+                <input type="text" class="form-control" name="diploma_domain" id="formname">
               </div>
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Mention:</label>
-                <input type="text" class="form-control" id="formname">
+                <input type="text" class="form-control" name="diploma_mention" id="formname">
               </div>
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Spécialité:</label>
-                <textarea class="form-control" id="messagetext"></textarea>
+                <input class="form-control" name="diploma_speciality" id="messagetext"></input>
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-            <button type="button" class="btn btn-primary" onclick="sendFile()">Importer</button>
+            <button type="button" class="btn btn-primary" onclick="sendAll()">Importer le document</button>
           </div>
         </div>
       </div>
@@ -303,14 +346,47 @@
     function closeForm() {
       document.getElementById("myForm").style.display = "none";
     }
-    function sendFile() {
-      let data = document.getElementById("document_up").files[0];
-      let entry = document.getElementById("document_up").files[0];
-      console.log('sendFile', entry, data)
-      fetch('uploads/' + encodeURIComponent(entry.name), { method: 'PUT', body: data });
-      alert('your file has been uploaded');
-      location.reload();
+    function sendAll() {
+      sendData();
+      sendFile();
+    }
+    function sendData() {
+      var first_name = document.formDoc.first_name.value;
+      var last_name = document.formDoc.last_name.value;
+      var birth_date = document.formDoc.birth_date.value;
+      var genre = document.formDoc.genre.value;
+      var birth_country = document.formDoc.birth_country.value;
+      var diploma_degree = document.formDoc.diploma_degree.value;
+      var diploma_domain = document.formDoc.diploma_domain.value;
+      var diploma_mention = document.formDoc.diploma_mention.value;
+      var diploma_speciality = document.formDoc.diploma_speciality.value;
+      var diploma_type = document.formDoc.diploma_type.value;
+      let xhr = new XMLHttpRequest();
+      var url = "127.0.0.1:8080/2ddoc";
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json.email + ", " + json.password);
+        }
+      };
+      var data = JSON.stringify({
+        "First Name": first_name, "Last Name": last_name, "Birth Date": birth_date,
+        "Birth Country": birth_country, "Diploma Degree": diploma_degree, "Diploma Domain": diploma_domain, "Diploma Mention": diploma_mention,
+        "Diploma Speciality": diploma_speciality, "Diploma Type": diploma_type
+      });
+      xhr.send(data);
     };
+
+    function sendFile() {
+      let file = document.getElementById("document_up").files[0];
+      let entry = document.getElementById("document_up").files[0];
+      console.log('sendFile', entry, file)
+      fetch('uploads/' + encodeURIComponent(entry.name), { method: 'PUT', body: file });
+      alert('Your file has been uploaded');
+      location.reload();
+    }
   </script>
 
 
